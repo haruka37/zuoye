@@ -1,0 +1,28 @@
+INFO:     Started server process [3580]
+INFO:     Waiting for application startup.
+[09/21/26 11:32:20] INFO     StreamableHTTP      streamable_http_manager.py:162
+                             session manager                                   
+                             started                                           
+INFO:     Application startup complete.
+INFO:     Uvicorn running on http://127.0.0.1:8000 (Press CTRL+C to quit)
+[09/21/26 11:43:39] INFO     Created new         streamable_http_manager.py:325
+                             transport with                                    
+                             session ID:                                       
+                             d785d14310e041399be                               
+                             92c902f3fcdf6                                     
+[09/21/26 11:44:39] INFO     HTTP Request: POST                 _client.py:1025
+                             http://localhost:3001/api/v1/works                
+                             pace/615ac48e-7167-4e6e-ba06-68b7f                
+                             1bdcf96/chat "HTTP/1.1 200 OK"                    
+[09/21/26 11:44:48] INFO     HTTP Request: POST                 _client.py:1025
+                             http://localhost:3001/api/v1/works                
+                             pace/615ac48e-7167-4e6e-ba06-68b7f                
+                             1bdcf96/chat "HTTP/1.1 200 OK"                    
+[09/21/26 12:06:51] INFO     Created new         streamable_http_manager.py:325
+                             transport with                                    
+                             session ID:                                       
+                             2cb7b582162a4eef9f7                               
+                             4ae5b8d027225                                     
+                    INFO     Terminating session:        streamable_http.py:855
+                             2cb7b582162a4eef9f74ae5b8d0                       
+                             27225                                             

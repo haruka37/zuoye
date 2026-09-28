@@ -1,0 +1,14 @@
+Traceback (most recent call last):
+  File "D:\xiexinzuoye\anythingllm-mcp\run.py", line 17, in <module>
+    main()
+    ~~~~^^
+  File "D:\xiexinzuoye\anythingllm-mcp\run.py", line 11, in main
+    print(f"工作区: {client.workspace_slug()}")
+                     ~~~~~~~~~~~~~~~~~~~~~^^
+  File "D:\xiexinzuoye\anythingllm-mcp\anythingllm_mcp\client.py", line 15, in workspace_slug
+    r.raise_for_status()
+    ~~~~~~~~~~~~~~~~~~^^
+  File "D:\xiexinzuoye\anythingllm-mcp\.venv\Lib\site-packages\httpx\_models.py", line 829, in raise_for_status
+    raise HTTPStatusError(message, request=request, response=self)
+httpx.HTTPStatusError: Server error '502 Bad Gateway' for url 'http://localhost:3001/api/v1/workspaces'
+For more information check: https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/502

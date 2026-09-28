@@ -1,0 +1,14 @@
+{
+  "mcpServers": {
+    "pet-hospital": {
+      "type": "http",
+      "url": "http://127.0.0.1:8000/mcp"
+    },
+    "Bazi": {
+      "type": "stdio",
+      "command": "npx",
+      "args": ["-y", "@lhk714/bazi-mcp@latest"],
+      "env": {}
+    }
+  }
+}

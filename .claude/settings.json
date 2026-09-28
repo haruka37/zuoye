@@ -1,0 +1,8 @@
+{
+  "permissions": {
+    "allow": [
+      "WebFetch(domain:docs.claude.com)",
+      "WebFetch(domain:code.visualstudio.com)"
+    ]
+  }
+}

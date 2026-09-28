@@ -1,0 +1,30 @@
+[build-system]
+requires = ["setuptools>=68"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "pet-hospital-mcp"
+version = "0.1.0"
+description = "Pet Hospital MCP service: exposes the Go pet hospital REST API to AI agents (official Python SDK mcp 2.0.0, protocol 2026-07-28, stateless Streamable HTTP)."
+readme = "README.md"
+requires-python = ">=3.11"
+dependencies = [
+    "mcp==2.0.0",
+    "httpx>=0.27",
+    "pydantic>=2.7",
+    "uvicorn>=0.30",
+]
+
+[project.optional-dependencies]
+dev = [
+    "pytest>=8.0",
+    "pytest-asyncio>=0.23",
+]
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[tool.pytest.ini_options]
+asyncio_mode = "auto"
+pythonpath = ["src"]
+testpaths = ["tests"]

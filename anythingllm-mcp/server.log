@@ -1,0 +1,15 @@
+¹¤×÷Çø: 615ac48e-7167-4e6e-ba06-68b7f1bdcf96
+INFO:     127.0.0.1:63266 - "POST /mcp HTTP/1.1" 200 OK
+INFO:     127.0.0.1:63266 - "POST /mcp HTTP/1.1" 202 Accepted
+INFO:     127.0.0.1:63266 - "GET /mcp HTTP/1.1" 200 OK
+INFO:     127.0.0.1:63268 - "POST /mcp HTTP/1.1" 200 OK
+INFO:     127.0.0.1:63268 - "POST /mcp HTTP/1.1" 200 OK
+INFO:     127.0.0.1:63268 - "POST /mcp HTTP/1.1" 200 OK
+INFO:     127.0.0.1:63284 - "POST /mcp HTTP/1.1" 200 OK
+INFO:     127.0.0.1:63284 - "POST /mcp HTTP/1.1" 200 OK
+INFO:     127.0.0.1:63286 - "POST /mcp HTTP/1.1" 200 OK
+INFO:     127.0.0.1:63286 - "POST /mcp HTTP/1.1" 202 Accepted
+INFO:     127.0.0.1:63286 - "POST /mcp HTTP/1.1" 200 OK
+INFO:     127.0.0.1:63286 - "POST /mcp HTTP/1.1" 202 Accepted
+INFO:     127.0.0.1:55332 - "GET /mcp HTTP/1.1" 400 Bad Request
+INFO:     127.0.0.1:55332 - "GET /favicon.ico HTTP/1.1" 404 Not Found
