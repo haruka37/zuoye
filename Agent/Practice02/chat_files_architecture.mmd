@@ -1,0 +1,55 @@
+graph TD
+    %% ===== 入口与配置 =====
+    INI["config.ini<br/>api_base / api_key / model"]
+    CFG["configparser 读取<br/>生成 llm 配置对象"]
+    INI --> CFG
+
+    ENTRY["__main__"]
+    ENTRY -->|默认运行| MAIN["main() 交互循环"]
+    ENTRY -->|参数 --self-test| SELF["_self_test()<br/>离线演练 10 个文件工具"]
+
+    %% ===== main 多轮工具循环 =====
+    subgraph LOOP["main() 多轮工具循环（最多 6 轮防死循环）"]
+        direction TB
+        IN["用户输入 input()"] --> APP["messages.append(user)"]
+        APP --> CHAT["_chat(messages, TOOLS)"]
+        CHAT --> DEC{"响应含 tool_calls?"}
+        DEC -->|是| DISP["_dispatch_tool(tc)<br/>解析参数 + 查表调用"]
+        DISP --> RES["工具结果 append 为 tool 消息"]
+        RES --> CHAT
+        DEC -->|否| OUT["print(最终回答) 并 break"]
+    end
+
+    MAIN --> IN
+    CFG --> CHAT
+
+    %% ===== 请求构建与网络 =====
+    CHAT --> BUILD["_build_request(payload)<br/>拼 URL / headers / Authorization"]
+    BUILD --> NET["urllib.request.urlopen<br/>访问 LLM 接口"]
+
+    %% ===== 工具调度与注册表 =====
+    DISP --> REG["TOOL_FUNCTIONS 映射表<br/>name -> Python 函数"]
+    REG --> FN["执行对应函数并返回字符串"]
+    FN --> GUARD["_refuse_destructive()<br/>防护: 禁止删根目录/系统目录"]
+
+    %% ===== 工具实现分组 =====
+    subgraph TOOLS_G["工具实现（TOOLS 共 11 项）"]
+        direction LR
+        T1["时间类<br/>getDate / isLeapYear"]
+        T2["目录类<br/>get_cwd / list_dir<br/>create_dir / delete_dir<br/>rename_path"]
+        T3["文件类<br/>get_file_type / read_file<br/>create_file / edit_file<br/>delete_file"]
+    end
+
+    FN --> T1
+    FN --> T2
+    FN --> T3
+
+    %% ===== 底层依赖与外部系统 =====
+    T1 --> DATE["系统 date 命令<br/>subprocess"]
+    T1 --> CALC["Python 闰年算法<br/>% 运算"]
+    T2 --> OS["os / shutil / mimetypes<br/>标准库"]
+    T3 --> OS
+    OS --> FS["操作系统文件系统"]
+
+    NET --> LLM["本地 LLM<br/>LM Studio · localhost:1234"]
+    DATE --> WIN["Windows cmd: date /t & time /t"]
