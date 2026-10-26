@@ -1,0 +1,4 @@
+# TUI 前端依赖
+textual>=0.80.0
+# 网页正文抓取工具 fetchWeb 依赖（trafilatura 为延迟导入，未安装时仅该工具报错）
+trafilatura>=1.12.0
